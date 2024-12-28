@@ -621,6 +621,7 @@ student_ids <- student_ids %>%
   select(-c(School, Class, Age, Sex, Name1))
 school_marks <- merge(school_marks, student_ids, by.x = "sno2", by.y = "SCHOOLMARKS_SNO", all.x = TRUE)
 school_marks <- school_marks %>%
+  filter(!is.na(baseline_id)) %>%
   select(school, class, sno2, baseline_id,
          name, baseline_name, gender, 
          Mathematics_CAT, Mathematics_EX, Mathematics_TOT, Mathematics_Annual, 
