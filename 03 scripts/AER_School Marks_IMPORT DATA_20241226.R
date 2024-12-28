@@ -26,7 +26,7 @@ files <- files[c(grep("Annual", files), grep("Term 3", files))]
 classes <- unique(substr(files, 1, 3))
 
 for (class in classes) {
-  print(class)
+  
   fileA <- files[grep(class, files)]
   fileA <- fileA[grep("Annual", fileA)]
   fileA <- read.csv(paste0("01 raw data/School_Kagarama/", fileA))
@@ -135,7 +135,7 @@ files <- files[c(grep("Annual", files), grep("Term 3", files))]
 classes <- unique(substr(files, 1, 3))
 
 for (class in classes) {
-  print(class)
+  
   fileA <- files[grep(class, files)]
   fileA <- fileA[grep("Annual", fileA)]
   fileA <- read.csv(paste0("01 raw data/School_Nyamata/", fileA))
@@ -261,7 +261,7 @@ files <- files[c(grep("Annual", files), grep("Term 3", files))]
 classes <- unique(substr(files, 1, 3))
 
 for (class in classes) {
-  print(class)
+  
   fileA <- files[grep(class, files)]
   fileA <- fileA[grep("Annual", fileA)]
   fileA <- read.csv(paste0("01 raw data/School_Nyanza/", fileA))
@@ -408,7 +408,7 @@ files <- files[c(grep("Annual", files), grep("Term 3", files))]
 classes <- unique(substr(files, 1, 3))
 
 for (class in classes) {
-  print(class)
+  
   fileA <- files[grep(class, files)]
   fileA <- fileA[grep("Annual", fileA)]
   fileA <- read.csv(paste0("01 raw data/School_Rango/", fileA))
@@ -643,7 +643,7 @@ school_marks <- school_marks %>%
 
 # save school-mark data --------------------------- --------------------------- ---------------------------
 
-write.csv(school_marks, "02 processed data/2019_school_marks_20241227.csv")
+write.csv(school_marks, "02 processed data/2019_school_marks_20241227.csv", row.names = FALSE)
 
 
 
