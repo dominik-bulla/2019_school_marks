@@ -381,7 +381,22 @@ nyanza <- nyanza %>%
          Kiswahili_CAT, Kiswahili_EX, Kiswahili_TOT, Kiswahili_Annual, 
          Literature_CAT, Literature_EX, Literature_TOT, Literature_Annual, 
          Religion_CAT, Religion_EX, Religion_TOT, Religion_Annual, 
-         Sports_CAT, Sports_EX, Sports_TOT, Sports_Annual)
+         Sports_CAT, Sports_EX, Sports_TOT, Sports_Annual) %>%
+  mutate(Mathematics_Annual = as.numeric(gsub("%", "", Mathematics_Annual)),
+         English_Annual = as.numeric(gsub("%", "", English_Annual)),
+         Biology_Annual = as.numeric(gsub("%", "", Biology_Annual)),
+         Chemistry_Annual = as.numeric(gsub("%", "", Chemistry_Annual)),
+         Kinyarwanda_Annual = as.numeric(gsub("%", "", Kinyarwanda_Annual)),
+         Physics_Annual = as.numeric(gsub("%", "", Physics_Annual)),
+         Entrepreneurship_Annual = as.numeric(gsub("%", "", Entrepreneurship_Annual)),
+         Geography_Annual = as.numeric(gsub("%", "", Geography_Annual)),
+         History_Annual = as.numeric(gsub("%", "", History_Annual)),
+         French_Annual = as.numeric(gsub("%", "", French_Annual)),
+         ICT_Annual = as.numeric(gsub("%", "", ICT_Annual)),
+         Kiswahili_Annual = as.numeric(gsub("%", "", Kiswahili_Annual)),
+         Literature_Annual = as.numeric(gsub("%", "", Literature_Annual)),
+         Religion_Annual = as.numeric(gsub("%", "", Religion_Annual)),
+         Sports_Annual = as.numeric(gsub("%", "", Sports_Annual)))
 rm(data, S1A, S1B, S2A, S2B, S2C, class, classes, file, file3, fileA, files)
 
 
@@ -415,7 +430,22 @@ for (class in classes) {
            "Kiswahili_Annual" = KISWAHILI, 
            "Sports_Annual" = `PHYSICAL.EDU..AND.SPORT`,
            "Literature_Annual" = `LITERATURE.IN.ENGLISH`,
-           "Religion_Annual" = `RELIGION.AND.ETHICS`)
+           "Religion_Annual" = `RELIGION.AND.ETHICS`) %>%
+    mutate(Mathematics_Annual = Mathematics_Annual * 100, 
+           English_Annual =  English_Annual * 100,
+           Kinyarwanda_Annual = Kinyarwanda_Annual * 100, 
+           Physics_Annual = Physics_Annual * 100, 
+           Chemistry_Annual = Chemistry_Annual * 100,  
+           Biology_Annual = Biology_Annual * 100, 
+           Geography_Annual = Geography_Annual * 100, 
+           History_Annual = History_Annual * 100, 
+           Entrepreneurship_Annual = Entrepreneurship_Annual * 100,
+           ICT_Annual = ICT_Annual * 100, 
+           French_Annual =  French_Annual * 100,
+           Kiswahili_Annual = Kiswahili_Annual * 100, 
+           Sports_Annual = Sports_Annual * 100,
+           Literature_Annual = Literature_Annual * 100,
+           Religion_Annual = Religion_Annual * 100)
   
   file3 <- files[grep(class, files)]
   file3 <- file3[grep("Term 3", file3)]
