@@ -249,7 +249,9 @@ nyamata <- nyamata %>%
          Kiswahili_Annual = as.numeric(gsub("%", "", Kiswahili_Annual)),
          Literature_Annual = as.numeric(gsub("%", "", Literature_Annual)),
          Religion_Annual = as.numeric(gsub("%", "", Religion_Annual)),
-         Sports_Annual = as.numeric(gsub("%", "", Sports_Annual)))
+         Sports_Annual = as.numeric(gsub("%", "", Sports_Annual))) %>%
+  mutate(ICT_Annual = ifelse(ICT_Annual > 100, ICT_Annual - 100, ICT_Annual),
+         Entrepreneurship_Annual = ifelse(Entrepreneurship_Annual > 100, ICT_Annual - 100, Entrepreneurship_Annual))
 rm(data, S1A, S1B, S1C, S1D, S2A, S2B, S2C, S2D, class, classes, files)
 
 
@@ -396,7 +398,12 @@ nyanza <- nyanza %>%
          Kiswahili_Annual = as.numeric(gsub("%", "", Kiswahili_Annual)),
          Literature_Annual = as.numeric(gsub("%", "", Literature_Annual)),
          Religion_Annual = as.numeric(gsub("%", "", Religion_Annual)),
-         Sports_Annual = as.numeric(gsub("%", "", Sports_Annual)))
+         Sports_Annual = as.numeric(gsub("%", "", Sports_Annual))) %>%
+  mutate(History_TOT = ifelse(History_TOT > 180, History_TOT - 100, History_TOT),
+         History_Annual = ifelse(History_Annual > 200, History_Annual - 200, History_Annual),
+         History_Annual = ifelse(History_Annual > 100, 100, History_Annual),
+         Kiswahili_TOT = ifelse(Kiswahili_TOT < 0, Kiswahili_TOT * -1, Kiswahili_TOT),
+         Sports_Annual = ifelse(Sports_Annual > 200, NA, Sports_Annual))
 rm(data, S1A, S1B, S2A, S2B, S2C, class, classes, file, file3, fileA, files)
 
 
@@ -578,6 +585,8 @@ rango <- rango %>%
          Sports_CAT, Sports_EX, Sports_TOT, Sports_Annual)
 rm(data, S1A, S1B, S2A, S2B, class, classes, file, file3, fileA, files)
 
+
+summary(nyamata)
 
 
 # merge data --------------------------- --------------------------- ---------------------------
